@@ -1,5 +1,5 @@
-
-import {  useState } from "react";
+import { useState } from "react";
+import { projectData } from "../components/data";
 
 type TProject = {
 	title: string;
@@ -9,31 +9,14 @@ type TProject = {
 	liveLink: string;
 	photo: string;
 };
-const works = [
-	{
-		title: "Classy Garments",
-		description: "hello sfsdhsd hjdsfsa hsdfiekn seisds iehdssvb",
-		client: "ewihewffshd",
-		backend: "ewihewffshd",
-		liveLink: "3532",
-		photo: "https://images.unsplash.com/photo-1718810125230-e8e2271354f5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90b3MtZmVlZHw0fHx8ZW58MHx8fHx8",
-	},
-	{
-		title: "Dashboard",
-		description: "hello sfsdhsd dfasfsd ewrwrgt fdxzvss",
-		client: "sdfsda",
-		backend: "uykhmmdhs",
-		liveLink: "ewrqrwerqw",
-		photo: "https://plus.unsplash.com/premium_photo-1676490733323-cb6b91f3c8de?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90b3MtZmVlZHw5fHx8ZW58MHx8fHx8",
-	},
-];
-const projectTitles = works.map((work) => work.title);
+
+const projectTitles = projectData.map((work) => work.title);
 
 export default function Work() {
-	const [project, setProjects] = useState<TProject>(works[0]);
+	const [project, setProjects] = useState<TProject>(projectData[0]);
 
 	const handleMatch = (title: string) => {
-		const res = works.find((work) => work.title === title);
+		const res = projectData.find((work) => work.title === title);
 		setProjects({ ...(res as TProject) });
 	};
 
@@ -54,24 +37,46 @@ export default function Work() {
 						</h3>
 					))}
 				</div>
-				<div className="w-full relative overflow-hidden rounded-md ">
+				<div className="w-full relative overflow-hidden rounded-md border-2 border-primary">
 					<img
 						src={project.photo}
 						alt={project.description}
-						className="h-[400px] w-full object-cover object-center opacity-40"
+						className="h-[400px] w-full object-cover object-center opacity-20 "
 					/>
 					<div className="absolute inset-5">
 						<div className="h-full flex flex-col justify-between ">
 							<div>
-								
 								<p className="flex justify-between items-center text-2xl">
 									{project.title}{" "}
-									<a className="sudo_link text-lg " href={project.liveLink}>Live Link</a>
+									<a
+										className="sudo_link text-lg "
+										href={project.liveLink}
+									>
+										Live Link
+									</a>
 								</p>
 								<p className="mt-4">{project.description}</p>
 							</div>
 							<div className="flex justify-between items-center">
-								
+								<a
+									href={project.client}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="sudo_link"
+								>
+									Front End
+								</a>
+
+								{project.backend ? (
+									<a
+										href={project.backend}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="sudo_link"
+									>
+										Back End
+									</a>
+								) : null}
 							</div>
 						</div>
 					</div>
