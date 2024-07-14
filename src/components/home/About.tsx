@@ -1,20 +1,20 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
-import resume from '../assets/resume_of_nihar.pdf'
+import resume from "../../assets/resume_of_nihar.pdf";
 const pTag =
 	"Hello! I'm a passionate MERN stack developer with a knack for building dynamic and responsive web applications. I thrive on turning complex problems into elegant solutions.";
 export default function About() {
 	const about = useRef(null);
 	const bRef = useRef(null);
-	//  
+	//
 	const tl = gsap.timeline();
 	useGSAP(() => {
 		tl.from(".about_text", {
-			stagger: .6,
-			
+			stagger: 0.6,
+
 			opacity: 0,
-			y:300,
+			y: 300,
 			scrollTrigger: {
 				trigger: ".about_text",
 				// start: "top 80%",
@@ -25,8 +25,8 @@ export default function About() {
 
 		tl.from(bRef.current, {
 			opacity: 0,
-			y:20,
-			delay:0.5,
+			y: 20,
+			delay: 0.5,
 			scrollTrigger: {
 				trigger: bRef.current,
 				start: "top 78%",
@@ -36,7 +36,10 @@ export default function About() {
 		});
 	});
 	return (
-		<section className="max-w-4xl mx-auto mt-20 lg:mt-44 relative" id="about">
+		<section
+			className="max-w-4xl mx-auto mt-20 lg:mt-44 relative"
+			id="about"
+		>
 			<p
 				className="text-center text-2xl md:text-4xl font-normal mb-10"
 				ref={about}

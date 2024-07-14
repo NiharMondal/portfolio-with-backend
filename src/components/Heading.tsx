@@ -1,12 +1,12 @@
+import logo from "../assets/logo.png";
 export default function Heading() {
 	return (
 		<header className="p-8">
 			<nav className="flex justify-between items-center">
 				<div>
-					<a href="/">
-						<span className="px-5 py-2 border border-primary rounded-full cursor-pointer  inline-block scale-110 hover:scale-100 duration-300 font-semibold">
-							Nihar Mondal
-						</span>
+					<a href="/" className="flex items-center gap-2">
+						<img src={logo} alt="logo" className="size-10" />
+						<h3 className="tracking-widest">ihar</h3>
 					</a>
 				</div>
 				<ul className="flex gap-x-10 *:cursor-pointer">

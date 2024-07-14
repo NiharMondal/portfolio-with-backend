@@ -15,8 +15,14 @@
     h3{
         @apply text-[3vw] font-normal tracking-wider
     }
+    h4{
+        @apply text-2xl font-semibold
+    }
     h5{
         @apply text-[4vw] leading-none italic
+    }
+    h6{
+        @apply font-semibold
     }
 }
 @layer components{
@@ -70,16 +76,16 @@
     }
 
    .gradient{
-        background: linear-gradient(#ff6f61, #0eefd8);
-        background: -webkit-linear-gradient(#ff6f61, #0eefd8);
+        background: linear-gradient(#ff6f61, #209CEE);
+        background: -webkit-linear-gradient(#ff6f61, #209CEE);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
    
    }
    .banner_heading{
-        background: linear-gradient(#ff6f61, #0eefd8);
-        background: -webkit-linear-gradient(#ff6f61, #0eefd8);
+        background: linear-gradient(#ff6f61, #209CEE);
+        background: -webkit-linear-gradient(#ff6f61, #209CEE);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -108,6 +114,28 @@
         opacity: 1;
     }
 
+
+    .img_container {
+        position: relative;
+        width: 300px;
+        /* Adjust the width as needed */
+        height: 400px;
+        /* Adjust the height as needed */
+        overflow: hidden;
+    }
+    
+    .img_container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 3s ease-in;
+        object-position: top;
+        
+    }
+    
+    .img_container:hover img {
+        object-position: bottom;
+    }
     
 }
 

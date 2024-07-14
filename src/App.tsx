@@ -1,5 +1,14 @@
 import "./App.css";
-import { About, Banner, Blog, Contact, Experiences, Footer, Skills, Work } from "./pages";
+import {
+	About,
+	Banner,
+	Contact,
+	Experiences,
+	Footer,
+	Skills,
+	Work,
+	Blog,
+} from "./components/home";
 
 function App() {
 	return (
@@ -8,10 +17,10 @@ function App() {
 			<About />
 			<Experiences />
 			<Work />
-			<Skills/>
-			<Blog/>
+			<Skills />
+			<Blog />
 			<Contact />
-			<Footer/>
+			<Footer />
 		</main>
 	);
 }

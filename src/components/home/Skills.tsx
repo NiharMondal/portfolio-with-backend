@@ -1,14 +1,20 @@
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { url } from "../../lib/url";
+import { TResponseFromServer, TSkillsResponse } from "../../types";
+
 export default function Skills() {
+	const [skillSet, setSkillSet] =
+		useState<TResponseFromServer<TSkillsResponse[]>>();
+
 	const texts = useRef(null);
 	const skills = useRef(null);
-	const tl = gsap.timeline({})
+	const tl = gsap.timeline({});
 	useGSAP(() => {
 		tl.from(texts.current, {
-			y: 80,
-			
+			x: -80,
+
 			scrollTrigger: {
 				trigger: texts.current,
 				scrub: true,
@@ -17,7 +23,7 @@ export default function Skills() {
 		});
 		tl.from(skills.current, {
 			x: 80,
-		
+
 			scrollTrigger: {
 				trigger: skills.current,
 				scrub: true,
@@ -25,6 +31,13 @@ export default function Skills() {
 			},
 		});
 	});
+
+	useEffect(() => {
+		fetch(`${url}/skill`)
+			.then((res) => res.json())
+			.then((data) => setSkillSet(data))
+			.catch((e) => console.log(e));
+	}, []);
 	return (
 		<section className="max-w-5xl mx-auto  py-20">
 			<h5 className="text-center">Skill and Expertice</h5>
@@ -48,23 +61,12 @@ export default function Skills() {
 				</div>
 				<div className="ring-1 ring-primary rounded p-5" ref={skills}>
 					<h6 className=" text-2xl text-primary mb-2">Expertice</h6>
-					<div className="grid grid-cols-2">
-						<ul>
-							<li>JavaScript</li>
-							<li>React</li>
-							<li>NextJs</li>
-							<li>Typescript</li>
-							<li>Redux Toolkit</li>
-							<li>TailwindCSS</li>
-						</ul>
-						<ul className="text-end">
-							<li>NodeJs</li>
-							<li>ExpressJs</li>
-							<li>Mongoose</li>
-							<li>Prisma</li>
-							<li>MongoDB Atlas</li>
-							<li>PostgreSQL</li>
-						</ul>
+					<div className="grid grid-cols-2 space-y-1">
+						{skillSet?.data.map((skill) => (
+							<ul key={skill.id} className="even:text-right">
+								<li>{skill.name}</li>
+							</ul>
+						))}
 					</div>
 				</div>
 			</div>

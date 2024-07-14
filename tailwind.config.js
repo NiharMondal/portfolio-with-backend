@@ -10,7 +10,7 @@ export default {
 
         'dark-gray':"#333333",
         background:"#f5f5f5",
-        primary:"#009688",
+        primary:"#209CEE",
         secondary:"#ff6f61"
 
       },

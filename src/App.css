@@ -17,3 +17,24 @@ body {
     font-weight: 400;
    
 }
+
+::-webkit-scrollbar {
+    width: 6px;
+    
+}
+
+::-webkit-scrollbar-track {
+    background: #1e4e6e;
+   
+}
+
+/* The scrollbar handle */
+::-webkit-scrollbar-thumb {
+    background: #209cee72;
+    
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #209CEE;
+}

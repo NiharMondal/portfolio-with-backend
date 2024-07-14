@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import Heading from "../components/Heading";
+import Heading from "../Heading";
 import { useRef } from "react";
 
 export default function Banner() {
@@ -27,7 +27,9 @@ export default function Banner() {
 				<h5> Hi, I am a </h5>
 
 				<h1 className="text-primary  banner_heading">FULL-STACK</h1>
-				<h1 className="flex justify-end items-end clip"><span className="text-[4vh] mr-2">WEB</span>DEVELOPER</h1>
+				<h1 className="flex justify-end items-end clip">
+					<span className="text-[4vh] mr-2">WEB</span>DEVELOPER
+				</h1>
 			</div>
 		</section>
 	);
